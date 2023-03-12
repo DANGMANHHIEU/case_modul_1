@@ -5,7 +5,7 @@
     <title>Case modul 1</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body onload="displayStudent()">
 <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quản lí sinh viên </h1>
 <!--// tạo bảng nhập thông tin sinh viên-->
 <div class="form-student">
@@ -37,16 +37,16 @@
 
     <label>Giới tính:</label>
         <input type="radio" name="gender" id="make" value="Nam"/>Nam
-        <input type="radio" name="gender" id="femake" vale="Nữ"/>Nữ
+        <input type="radio" name="gender" id="femake" value="Nữ"/>Nữ
     <span class="fullname" id="fullgender"></span>
     </br>
     <label>&nbsp;</label>
     <button type="button" onclick="save()">Lưu lại</button>
 </div>
 <!--// tạo bảng lưu trữ danh sách sinh viên-->
-<div class="list-student">
+<div class="list-student" id="list-student">
     <h3>Danh sách sinh viên</h3>
-    <table border="1" cellpadding="0" cellspacing="0" width="800">
+    <table id="group student" border="1" cellpadding="0" cellspacing="0" width="800">
         <th>STT</th>
         <th>Họ và tên</th>
         <th>Tuổi</th>
