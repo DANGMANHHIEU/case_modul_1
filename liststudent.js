@@ -79,9 +79,58 @@ function save() {
     else {
         document.getElementById('fullgender').innerHTML='';
     }
-    //kiểm tra người dùng nhập đầy đủ và đúng thông tin chưa
+    //kiểm tra người dùng nhập đầy đủ và đúng thông tin chưa nếu đúng thì lưu lại
     if(name && age && email && phone && address && gender){
-        console.log(name,age, email, phone, address, gender);
+
+        let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
+
+        student.push({
+            fullname: name,
+            age: age,
+            email: email,
+            phone: phone,
+            address: address,
+            gender: gender,
+        })
+        // chuyển student sang dạng chuỗi
+        localStorage.setItem('student',JSON.stringify(student));
+      this.displayStudent();
     }
+        }
+
+        // hàm hiển thị danh sách
+        function displayStudent(){
+         let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
+         if(student.length ===0){
+             document.getElementById('list-student').style.display='none';
+             return false
+         }
+            document.getElementById('list-student').style.display='block';
+
+         let tableStudent = `<tr>
+        <th>STT</th>
+        <th>Họ và tên</th>
+        <th>Tuổi</th>
+        <th>Email</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th>Giới tính</th>
+        <th>Thao tác</th>
+        </tr>`
+
+            student.forEach((student,index) =>{
+                index++;
+                tableStudent += `<tr>
+        <th>${index}</th>
+        <th>${student.fullname}</th>
+        <th>${student.age}</th>
+        <th>${student.email}</th>
+        <th>${student.phone}</th>
+        <th>${student.address}</th>
+        <th>${student.gender}</th>
+        <th><a href="#">Edit</a> | <a href="#">Delete</a> </th>
+        </tr>`
+            })
+            document.getElementById('group student').innerHTML = tableStudent;
 
         }
