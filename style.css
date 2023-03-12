@@ -1,0 +1,37 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+div.form-student{
+    width: 500px;
+    border: 1px solid #ccc;
+    margin: 25px;
+    padding: 10px;
+    float: left;
+}
+div.list-student{
+    width: 800px;
+    border: 1px solid #ccc;
+    margin: 25px;
+    padding: 10px;
+    float: left;
+}
+ h3 {
+    margin-top: 0px;
+    padding: 0px;
+}
+div.form-student label{
+    width: 100px;
+    float: left;
+}
+div.form-student input[type='text'], button{
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 200px;
+}
+div.form-student button{
+    margin-top: 15px;
+}
+.fullname{
+    color: red;
+}
