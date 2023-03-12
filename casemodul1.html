@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case modul 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quản lí sinh viên </h1>
+<!--// tạo bảng nhập thông tin sinh viên-->
+<div class="form-student">
+    <h3>Thông tin sinh viên</h3>
+    <label>Họ và tên:</label>
+    <input type="text" id="name"/>
+    <span class="fullname" id="fullname"></span>
+    </br>
+
+    <label>Tuổi:</label>
+    <input type="text" id="age"/>
+    <span class="fullname" id="fullage"></span>
+    </br>
+
+    <label>Email:</label>
+    <input type="text" id="mail"/>
+    <span class="fullname" id="fullmail"></span>
+    </br>
+
+    <label>Số điện thoại:</label>
+    <input type="text" id="phone"/>
+    <span class="fullname" id="fullphone"></span>
+    </br>
+
+    <label>Địa chỉ:</label>
+    <input type="text" id="address"/>
+    <span class="fullname" id="fulladdress"></span>
+    </br>
+
+    <label>Giới tính:</label>
+        <input type="radio" name="gender" id="make" value="Nam"/>Nam
+        <input type="radio" name="gender" id="femake" vale="Nữ"/>Nữ
+    <span class="fullname" id="fullgender"></span>
+    </br>
+    <label>&nbsp;</label>
+    <button type="button" onclick="save()">Lưu lại</button>
+</div>
+<!--// tạo bảng lưu trữ danh sách sinh viên-->
+<div class="list-student">
+    <h3>Danh sách sinh viên</h3>
+    <table border="1" cellpadding="0" cellspacing="0" width="800">
+        <th>STT</th>
+        <th>Họ và tên</th>
+        <th>Tuổi</th>
+        <th>Email</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th>Giới tính</th>
+        <th>Thao tác</th>
+    </table>
+</div>
+<script src="liststudent.js"></script>
+
+</body>
+</html>
