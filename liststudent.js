@@ -84,17 +84,21 @@ function save() {
 
         let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
 
-        student.push({
+        let item = {
             fullname: name,
             age: age,
             email: email,
             phone: phone,
             address: address,
             gender: gender,
-        })
+        }
+
+       student.push(item);
+
         // chuyển student sang dạng chuỗi
         localStorage.setItem('student',JSON.stringify(student));
       this.displayStudent();
+      this.clear() ;
     }
         }
 
@@ -133,28 +137,43 @@ function save() {
         </tr>`
             })
             document.getElementById('group student').innerHTML = tableStudent;
-
         }
 
     // hàm xóa sinh viên
     function deleteStudent(id){
         let student = localStorage.getItem('student')? JSON.parse(localStorage.getItem('student')) :[];
-        student.splice(id,1);
+        if(confirm('Bạn chắc chắn muốn xóa')){   //hiển thị thông báo muốn xóa
+        student.splice(id,1);}
         localStorage.setItem('student',JSON.stringify(student));
         displayStudent();
     }
 
     // hàm sửa sinh viên
     function editStudent(id){
-        currIndex = id ;
         let student = localStorage.getItem('student')? JSON.parse(localStorage.getItem('student')) :[];
-        for(let i=0;i<student.length;i++){
             document.getElementById('name').value = student[id].fullname;
             document.getElementById('age').value = student[id].age;
             document.getElementById('mail').value = student[id].email;
             document.getElementById('phone').value = student[id].phone;
             document.getElementById('address').value = student[id].address;
-            document.getElementById('update').innerHTML = 'Cập nhập';
-            }
+
+            document.getElementById('save').style.display = 'none';
+            document.getElementById('update').style.display = 'inline-block';
+
+        }
+        //hàm cập nhập
+       function update(){
+
+       }
+
+        //hàm sau khi nhập thì về ô trống
+        function clear(){
+    document.getElementById('name').value = "";
+    document.getElementById('age').value = "";
+    document.getElementById('mail').value ="";
+    document.getElementById('phone').value="";
+    document.getElementById('address').value="";
+    document.getElementById('make').value="";
+    document.getElementById('femake').value="";
         }
 
