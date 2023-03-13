@@ -119,6 +119,7 @@ function save() {
         </tr>`
 
             student.forEach((student,index) =>{
+                let idStudent = index;
                 index++;
                 tableStudent += `<tr>
         <th>${index}</th>
@@ -128,9 +129,32 @@ function save() {
         <th>${student.phone}</th>
         <th>${student.address}</th>
         <th>${student.gender}</th>
-        <th><a href="#">Edit</a> | <a href="#">Delete</a> </th>
+        <th><a href="#" onclick="editStudent(${idStudent})" >Edit</a> | <a href="#" onclick="deleteStudent(${idStudent})">Delete</a> </th>
         </tr>`
             })
             document.getElementById('group student').innerHTML = tableStudent;
 
         }
+
+    // hàm xóa sinh viên
+    function deleteStudent(id){
+        let student = localStorage.getItem('student')? JSON.parse(localStorage.getItem('student')) :[];
+        student.splice(id,1);
+        localStorage.setItem('student',JSON.stringify(student));
+        displayStudent();
+    }
+
+    // hàm sửa sinh viên
+    function editStudent(id){
+        currIndex = id ;
+        let student = localStorage.getItem('student')? JSON.parse(localStorage.getItem('student')) :[];
+        for(let i=0;i<student.length;i++){
+            document.getElementById('name').value = student[id].fullname;
+            document.getElementById('age').value = student[id].age;
+            document.getElementById('mail').value = student[id].email;
+            document.getElementById('phone').value = student[id].phone;
+            document.getElementById('address').value = student[id].address;
+            document.getElementById('update').innerHTML = 'Cập nhập';
+            }
+        }
+
