@@ -1,17 +1,23 @@
 body {
     padding: 0px;
     margin: 0px;
+    background: peachpuff;
 }
+h1 {color: #990000; font-size: 30px;}
 div.form-student{
     width: 500px;
-    border: 1px solid #ccc;
     margin: 25px;
     padding: 10px;
     float: left;
+    background: skyblue ;
+}
+label {
+    color: black;
+    display: inline-block;
 }
 div.list-student{
     width: 800px;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     margin: 25px;
     padding: 10px;
     float: left;
@@ -19,19 +25,52 @@ div.list-student{
  h3 {
     margin-top: 0px;
     padding: 0px;
+     color: black;
 }
 div.form-student label{
     width: 100px;
     float: left;
 }
-div.form-student input[type='text'], button{
+div.form-student input[type='text']{
     margin-bottom: 10px;
     padding: 5px;
     width: 200px;
+    box-sizing: border-box;
+    border: none;
+    background-color:cornsilk;
+    color: black;
 }
+
 div.form-student button{
     margin-top: 15px;
 }
 .fullname{
     color: red;
+}
+
+button{
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100px;
+}
+
+table, th, td{
+    border:1px solid #868585;
+}
+table{
+    border-collapse:collapse;
+    width:100%;
+}
+th, td{
+    text-align:left;
+    padding:10px;
+}
+table tr:nth-child(odd){
+    background-color:#eee;
+}
+table tr:nth-child(even){
+    background-color:white;
+}
+table tr:nth-child(1){
+    background-color:skyblue;
 }
