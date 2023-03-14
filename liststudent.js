@@ -35,9 +35,9 @@ function save() {
         document.getElementById('fullage').innerHTML='';
     }
     //nhập email
-    if(email.length<6){//nhập email
+    if(email.length<6){
         email = '';
-        document.getElementById('fullmail').innerHTML='email lớn hơn 8 kí tự';
+        document.getElementById('fullmail').innerHTML='Email lớn hơn 8 kí tự';
     }
     else if(!checkmail(email)){
         email = '';
@@ -53,7 +53,7 @@ function save() {
     }
     else if(phone.length<10 || phone.length>12){
         phone='';
-        document.getElementById('fullphone').innerHTML='số điện thoại không đúng';
+        document.getElementById('fullphone').innerHTML='Số điện thoại không đúng';
     }
     else{
         document.getElementById('fullphone').innerHTML='';
@@ -69,16 +69,14 @@ function save() {
     //nhập giới tính
     if(gender.length===0){
         gender = '';
-        document.getElementById('fullgender').innerHTML='Vui lòng chọn giới tính';
+        document.getElementById('fullgender').innerHTML='Vui lòng nhập giới tính';
     }
     else {
         document.getElementById('fullgender').innerHTML='';
     }
     //kiểm tra người dùng nhập đầy đủ và đúng thông tin chưa nếu đúng thì lưu lại
     if(name && age && email && phone && address && gender){
-
         let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
-
         let item = {
             name: name,
             age: age,
@@ -87,9 +85,7 @@ function save() {
             address: address,
             gender: gender,
         }
-
        student.push(item);
-
         // chuyển student sang dạng chuỗi
         localStorage.setItem('student',JSON.stringify(student));
       this.displayStudent();
