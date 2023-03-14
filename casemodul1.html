@@ -35,6 +35,8 @@
     <span class="fullname" id="fulladdress"></span>
     </br>
 
+    <input type="hidden" id="index"/></br>
+
     <label>Giới tính:</label>
         <input type="radio" name="gender" id="make" value="Nam"/>Nam
         <input type="radio" name="gender" id="femake" value="Nữ"/>Nữ
@@ -42,7 +44,7 @@
     </br>
     <label>&nbsp;</label>
     <button type="button" id="save" onclick="save()">Lưu lại</button>
-    <button type="button" id="update" style="display: none">Cập nhập</button>
+    <button type="button" id="update" onclick="update()" style="display: none">Cập nhập</button>
 </div>
 <!--// tạo bảng lưu trữ danh sách sinh viên-->
 <div class="list-student" id="list-student">
