@@ -156,6 +156,7 @@ function save() {
             document.getElementById('mail').value = student[id].email;
             document.getElementById('phone').value = student[id].phone;
             document.getElementById('address').value = student[id].address;
+            document.getElementById('index').value = id ;// hấng index
 
             document.getElementById('save').style.display = 'none';
             document.getElementById('update').style.display = 'inline-block';
@@ -163,6 +164,20 @@ function save() {
         }
         //hàm cập nhập
        function update(){
+           let student = localStorage.getItem('student')? JSON.parse(localStorage.getItem('student')) :[];
+           let index = document.getElementById('index').value;
+           student[index]= {
+               name : document.getElementById('name').value,
+                age : document.getElementById('age').value,
+                email : document.getElementById('mail').value,
+                phone : document.getElementById('phone').value,
+                address : document.getElementById('address').value,
+           }
+           localStorage.setItem('student',JSON.stringify(student));
+           displayStudent();
+           document.getElementById('save').style.display = 'inline-block';
+           document.getElementById('update').style.display = 'none';
+           clear();
 
        }
 
