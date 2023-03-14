@@ -8,13 +8,8 @@ function save() {
     let email = document.getElementById('mail').value;
     let phone = document.getElementById('phone').value;
     let address = document.getElementById('address').value;
-    let gender = ''
-    if (document.getElementById('make').checked){
-        gender= document.getElementById('make').value;
-    }
-    else if(document.getElementById('femake').checked){
-        gender = document.getElementById('femake').value;
-    }
+    let gender = document.getElementById('gender').value;
+
     // Nếu không nhập họ tên thông báo vui lòng nhập họ tên
     if(name.length ==0){
         name = '';
@@ -32,7 +27,7 @@ function save() {
         document.getElementById('fullname').innerHTML= '';
     }
     //vui lòng nhập tuổi
-    if(age.length==0){
+    if(age.length===0){
         age = '';
         document.getElementById('fullage').innerHTML='Vui lòng nhập tuổi';
     }
@@ -52,7 +47,7 @@ function save() {
         document.getElementById('fullmail').innerHTML='';
     }
     // nhập sđt
-    if(phone.length==0){
+    if(phone.length===0){
         phone='';
         document.getElementById('fullphone').innerHTML='Nhập số điện thoại';
     }
@@ -64,7 +59,7 @@ function save() {
         document.getElementById('fullphone').innerHTML='';
     }
     // nhập địa chỉ
-    if(address.length==0){
+    if(address.length===0){
         address = '';
         document.getElementById('fulladdress').innerHTML='Vui lòng nhập địa chỉ'
     }
@@ -72,7 +67,7 @@ function save() {
         document.getElementById('fulladdress').innerHTML='';
     }
     //nhập giới tính
-    if(gender.length==0){
+    if(gender.length===0){
         gender = '';
         document.getElementById('fullgender').innerHTML='Vui lòng chọn giới tính';
     }
@@ -85,7 +80,7 @@ function save() {
         let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
 
         let item = {
-            fullname: name,
+            name: name,
             age: age,
             email: email,
             phone: phone,
@@ -107,7 +102,6 @@ function save() {
          let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
          if(student.length ===0){
              document.getElementById('list-student').style.display='none';
-             return false
          }
             document.getElementById('list-student').style.display='block';
 
@@ -127,7 +121,7 @@ function save() {
                 index++;
                 tableStudent += `<tr>
         <th>${index}</th>
-        <th>${student.fullname}</th>
+        <th>${student.name}</th>
         <th>${student.age}</th>
         <th>${student.email}</th>
         <th>${student.phone}</th>
@@ -148,19 +142,20 @@ function save() {
         displayStudent();
     }
 
-    // hàm sửa sinh viên
+
+    //hàm sửa sinh viên
     function editStudent(id){
         let student = localStorage.getItem('student')? JSON.parse(localStorage.getItem('student')) :[];
-            document.getElementById('name').value = student[id].fullname;
+            document.getElementById('name').value = student[id].name;
             document.getElementById('age').value = student[id].age;
             document.getElementById('mail').value = student[id].email;
             document.getElementById('phone').value = student[id].phone;
             document.getElementById('address').value = student[id].address;
+            document.getElementById('gender').value = student[id].gender
             document.getElementById('index').value = id ;// hấng index
 
             document.getElementById('save').style.display = 'none';
             document.getElementById('update').style.display = 'inline-block';
-
         }
         //hàm cập nhập
        function update(){
@@ -172,13 +167,14 @@ function save() {
                 email : document.getElementById('mail').value,
                 phone : document.getElementById('phone').value,
                 address : document.getElementById('address').value,
+               gender: document.getElementById('gender').value,
            }
+
            localStorage.setItem('student',JSON.stringify(student));
            displayStudent();
+           clear();
            document.getElementById('save').style.display = 'inline-block';
            document.getElementById('update').style.display = 'none';
-           clear();
-
        }
 
         //hàm sau khi nhập thì về ô trống
@@ -188,7 +184,6 @@ function save() {
     document.getElementById('mail').value ="";
     document.getElementById('phone').value="";
     document.getElementById('address').value="";
-    document.getElementById('make').value="";
-    document.getElementById('femake').value="";
+    document.getElementById('gender').value="";
         }
 
