@@ -11,7 +11,7 @@ function save() {
     let code = document.getElementById('code').value;
 
     // Nếu không nhập họ tên thông báo vui lòng nhập họ tên
-    if(name.length ==0){
+    if(name.length ===0){
         name = '';
         document.getElementById('fullname').innerHTML= 'Vui lòng nhập họ tên';
     }
