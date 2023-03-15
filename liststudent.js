@@ -8,7 +8,7 @@ function save() {
     let email = document.getElementById('mail').value;
     let phone = document.getElementById('phone').value;
     let address = document.getElementById('address').value;
-    let gender = document.getElementById('gender').value;
+    let code = document.getElementById('code').value;
 
     // Nếu không nhập họ tên thông báo vui lòng nhập họ tên
     if(name.length ==0){
@@ -67,15 +67,15 @@ function save() {
         document.getElementById('fulladdress').innerHTML='';
     }
     //nhập giới tính
-    if(gender.length===0){
-        gender = '';
-        document.getElementById('fullgender').innerHTML='Vui lòng nhập giới tính';
+    if(code.length===0){
+        code = '';
+        document.getElementById('fullcode').innerHTML='Vui lòng nhập mã sinh viên';
     }
     else {
-        document.getElementById('fullgender').innerHTML='';
+        document.getElementById('fullcode').innerHTML='';
     }
     //kiểm tra người dùng nhập đầy đủ và đúng thông tin chưa nếu đúng thì lưu lại
-    if(name && age && email && phone && address && gender){
+    if(name && age && email && phone && address && code){
         let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
         let item = {
             name: name,
@@ -83,7 +83,7 @@ function save() {
             email: email,
             phone: phone,
             address: address,
-            gender: gender,
+            code: code,
         }
        student.push(item);
         // chuyển student sang dạng chuỗi
@@ -108,7 +108,7 @@ function save() {
         <th>Email</th>
         <th>Số điện thoại</th>
         <th>Địa chỉ</th>
-        <th>Giới tính</th>
+        <th>Mã sinh viên</th>
         <th>Thao tác</th>
         </tr>`
 
@@ -122,7 +122,7 @@ function save() {
         <th>${student.email}</th>
         <th>${student.phone}</th>
         <th>${student.address}</th>
-        <th>${student.gender}</th>
+        <th>${student.code}</th>
         <th><a href="#" onclick="editStudent(${idStudent})" >Edit</a> | <a href="#" onclick="deleteStudent(${idStudent})">Delete</a> </th>
         </tr>`
             })
@@ -147,7 +147,7 @@ function save() {
             document.getElementById('mail').value = student[id].email;
             document.getElementById('phone').value = student[id].phone;
             document.getElementById('address').value = student[id].address;
-            document.getElementById('gender').value = student[id].gender
+            document.getElementById('code').value = student[id].code
             document.getElementById('index').value = id ;// hấng index
 
             document.getElementById('save').style.display = 'none';
@@ -163,7 +163,7 @@ function save() {
                 email : document.getElementById('mail').value,
                 phone : document.getElementById('phone').value,
                 address : document.getElementById('address').value,
-               gender: document.getElementById('gender').value,
+               code: document.getElementById('code').value,
            }
 
            localStorage.setItem('student',JSON.stringify(student));
@@ -180,6 +180,6 @@ function save() {
     document.getElementById('mail').value ="";
     document.getElementById('phone').value="";
     document.getElementById('address').value="";
-    document.getElementById('gender').value="";
+    document.getElementById('code').value="";
         }
 
