@@ -98,8 +98,8 @@ function save() {
          let student = localStorage.getItem('student') ? JSON.parse(localStorage.getItem('student')) :[];
          if(student.length ===0){
              document.getElementById('list-student').style.display='none';
-         }
-            document.getElementById('list-student').style.display='block';
+         } else {
+            document.getElementById('list-student').style.display='block';}
 
          let tableStudent = `<tr>
         <th>STT</th>
